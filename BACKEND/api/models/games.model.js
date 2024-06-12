@@ -29,7 +29,7 @@ const Game = connection.define(
             allowNull: false,
             defaultValue: 'https://www.researchgate.net/profile/Tc-Graham/publication/220982725/figure/fig1/AS:340689062776843@1458238010699/In-the-Legend-of-Zelda-The-Wind-Waker-the-players-avatar-points-to-interesting-objects.png'
         },
-    }
+    },
     {
         timestamps: false,
     }
