@@ -11,12 +11,11 @@ const startDB = async () => {
     syncModels()
 }
 
+const router = require('./api/routes');
 const app = express()
 app.use(morgan('dev'))
 
-app.get('/', (req, res) => {
-    res.status(200).send('Express working!')
-})
+app.use('/api', router)
 
 app.listen(process.env.PORT, () => {
     console.log(`Server started!! Listening on port ${process.env.PORT}`)
