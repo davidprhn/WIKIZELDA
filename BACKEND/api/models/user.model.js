@@ -27,7 +27,8 @@ const User = connection.define(
     },
   },
   {
+    timestamps: false
   },
 )
 
-console.log(User === sequelize.models.User)
+module.exports = User
