@@ -18,7 +18,7 @@ const User = connection.define(
       allowNull: false,
     },
     birthday_date: {
-      type: DataTypes.DATE,
+      type: DataTypes.DATEONLY,
       allowNull: false,
     },
     role: {

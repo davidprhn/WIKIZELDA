@@ -12,7 +12,9 @@ const startDB = async () => {
 }
 
 const router = require('./api/routes');
+
 const app = express()
+app.use(express.json())
 app.use(morgan('dev'))
 
 app.use('/api', router)
