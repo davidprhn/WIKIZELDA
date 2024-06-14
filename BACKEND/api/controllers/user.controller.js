@@ -1,5 +1,6 @@
 const User = require('../models/user.model')
 const bcrypt = require('bcrypt')
+const Userinfo = require('../models/user_info.model')
 
 const getAllUsers = async (req, res) => {
     try {
@@ -28,7 +29,11 @@ const getAllUsers = async (req, res) => {
 
 const getOneUser = async (req, res) => {
     try {
-        const user = await User.findByPk(req.params.id)
+        const user = await User.findByPk(req.params.id, {
+            include: {
+                model: Userinfo
+            }
+        })
 
         if (!user) {
             res.status(404).json({

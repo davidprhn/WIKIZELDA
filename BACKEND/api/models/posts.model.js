@@ -13,7 +13,8 @@ const Post = connection.define(
             defaultValue: 0,
         },
         created_at: {
-            type: DataTypes.TIME,
+            type: DataTypes.DATE,
+            defaultValue: DataTypes.NOW,
             allowNull: false,
         }
     },

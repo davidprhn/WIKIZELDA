@@ -1,5 +1,7 @@
 const UserInfo = require('../models/user_info.model')
 
+
+
 const createUserInfo = async (req, res) => {
     try {
         const infoUser = await UserInfo.create(req.body)
@@ -18,7 +20,7 @@ const createUserInfo = async (req, res) => {
 
 const updateUserInfo = async (req, res) => {
     try {
-        const [result] = await User.update(
+        const [result] = await UserInfo.update(
             req.body,
             {
                 where: {
@@ -48,23 +50,23 @@ const updateUserInfo = async (req, res) => {
 
 const deleteUserInfo = async (req, res) => {
     try {
-        const user = await User.destroy(
+        const infoUser = await UserInfo.destroy(
             {
                 where: {
                     id:req.params.id,
                 },
             })
 
-        if (!user) {
+        if (!infoUser) {
             res.status(404).json({
                 message: "UserInfo not deleted",
-                result: user,
+                result: infoUser,
             })
         }
 
         res.status(200).json({
             message: "UserInfo DESTROYED",
-            result: user,
+            result: infoUser,
         })
     } catch (error) {
          res.status(500).json({
