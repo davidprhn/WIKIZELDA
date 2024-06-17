@@ -19,7 +19,7 @@ const User = connection.define(
     },
     birthday_date: {
       type: DataTypes.DATEONLY,
-      allowNull: false,
+      allowNull: true,
     },
     role: {
       type: DataTypes.ENUM('user', 'admin'),

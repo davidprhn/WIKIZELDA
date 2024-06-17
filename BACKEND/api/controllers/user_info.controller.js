@@ -1,6 +1,53 @@
 const UserInfo = require('../models/user_info.model')
 
 
+const getAllUserInfos = async (req, res) => {
+    try {
+        const userinfos = await UserInfo.findAll({
+            where: req.query
+        })
+
+        if (!userinfos) {
+            res.status(404).json({
+                message: "No userinfos found",
+                result: userinfos,
+            })
+        }
+
+        res.status(200).json({
+            message: "All UserInfos fetched",
+            result: userinfos,
+        })
+    } catch (error) {
+         res.status(500).json({
+            message: 'Error getting all userinfos',
+            result: error
+        })
+    }
+}
+
+const getOneUserInfo = async (req, res) => {
+    try {
+        const userinfo = await UserInfo.findByPk(req.params)
+
+        if (!userinfo) {
+            res.status(404).json({
+                message: "UserInfo not found",
+                result: userinfo,
+            })
+        }
+
+        res.status(200).json({
+            message: "UserInfo fetched",
+            result: userinfo,
+        })
+    } catch (error) {
+         res.status(500).json({
+            message: 'Error getting one userinfo',
+            result: error
+        })
+    }
+}
 
 const createUserInfo = async (req, res) => {
     try {
@@ -77,6 +124,8 @@ const deleteUserInfo = async (req, res) => {
 }
 
 module.exports = {
+    getAllUserInfos,
+    getOneUserInfo,
     createUserInfo,
     updateUserInfo,
     deleteUserInfo

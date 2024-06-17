@@ -1,6 +1,53 @@
 const Post = require('../models/posts.model')
 
 
+const getAllPosts = async (req, res) => {
+    try {
+        const posts = await Post.findAll({
+            where: req.query
+        })
+
+        if (!posts) {
+            res.status(404).json({
+                message: "No posts found",
+                result: posts,
+            })
+        }
+
+        res.status(200).json({
+            message: "All Posts fetched",
+            result: posts,
+        })
+    } catch (error) {
+         res.status(500).json({
+            message: 'Error getting all posts',
+            result: error
+        })
+    }
+}
+
+const getOnePost = async (req, res) => {
+    try {
+        const post = await Post.findByPk(req.params)
+
+        if (!post) {
+            res.status(404).json({
+                message: "Post not found",
+                result: post,
+            })
+        }
+
+        res.status(200).json({
+            message: "Post fetched",
+            result: post,
+        })
+    } catch (error) {
+         res.status(500).json({
+            message: 'Error getting one post',
+            result: error
+        })
+    }
+}
 
 const createPost = async (req, res) => {
     try {
@@ -78,6 +125,8 @@ const deletePost = async (req, res) => {
 }
 
 module.exports = {
+    getAllPosts,
+    getOnePost,
     createPost,
     updatePost,
     deletePost
