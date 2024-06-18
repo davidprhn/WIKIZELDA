@@ -31,9 +31,9 @@ POST   | /user                | YES   | user| Create One Userinfo  | `info`, `av
 METHOD | ENDPOINT         | TOKEN | ROLE | DESCRIPTION              | POST PARAMS                                     | RETURNS
 -------|------------------|-------|------|--------------------------|-------------------------------------------------|--------------------
 GET    | /post            | YES   | user | Get All posts            |                                                 | { message: `string`, result: `array` }
-GET    | /post/:id         | YES   | user | Get One post           |                                                 | { message: `string`, result: `object` }
-POST    | /post            | YES   | user | Create post            |  `value`                                        | { message: `string`, result: `object` }
-PUT    | /post/:id/like     | YES   | user | add Like to post            |                                          | { message: `string`, result: `object` }
+GET    | /post/:id        | YES   | user | Get One post             |                                                 | { message: `string`, result: `object` }
+POST    | /post           | YES   | user | Create post              |  `value`                                        | { message: `string`, result: `object` }
+POST    | /post/:id/      | YES   | user | add post to game         |                                                 | { message: `string`, result: `object` }
 
 
 ## Games Endpoints
@@ -41,7 +41,7 @@ METHOD | ENDPOINT         | TOKEN | ROLE | DESCRIPTION              | POST PARAM
 -------|------------------|-------|------|--------------------------|-------------------------------------------------|--------------------
 GET    | /game            | YES   | user | Get All games            |                                                 | { message: `string`, result: `array` }
 GET    | /game/:id        | YES   | user | Get One game             |                                                 | { message: `string`, result: `object` }
-POST   | /game            | YES   | admin | Create game              |  `name`,`launch_year`,`duration`,`dificulty`,`guide`,`game_image` | { message: `string`, result: `object` }
+POST   | /game            | YES   | admin | Create game             |  `name`,`launch_year`,`duration`,`dificulty`,`guide`,`game_image` | { message: `string`, result: `object` }
 PUT    | /game/:id/like   | YES   | user | add Like to game         |                                                 | { message: `string`, result: `object` }
 
 
