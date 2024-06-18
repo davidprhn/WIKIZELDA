@@ -33,7 +33,7 @@ METHOD | ENDPOINT         | TOKEN | ROLE | DESCRIPTION              | POST PARAM
 GET    | /post            | YES   | user | Get All posts            |                                                 | { message: `string`, result: `array` }
 GET    | /post/:id        | YES   | user | Get One post             |                                                 | { message: `string`, result: `object` }
 POST    | /post           | YES   | user | Create post              |  `value`                                        | { message: `string`, result: `object` }
-POST    | /post/:id/      | YES   | user | add post to game         |                                                 | { message: `string`, result: `object` }
+POST    | /post/:id/      | YES   | user | Add post to game         |                                                 | { message: `string`, result: `object` }
 
 
 ## Games Endpoints
