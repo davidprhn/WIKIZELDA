@@ -124,10 +124,34 @@ const deletePost = async (req, res) => {
     }
 }
 
+const addPost = async (req, res) => {
+    try {
+        const gamePost = await Post.findByPk(req.params.id)
+
+        if (!gamePost) {
+           return res.status(404).json()
+        }
+
+        await gamePost.setUser(res.locals.user)
+
+        res.status(200).json({
+            message: 'Post added',
+            result: gamePost
+        })
+    } catch (error) {
+        console.log(error)
+         res.status(500).json({
+            message: 'Error posting into game',
+            result: error
+        })
+    }
+}
+
 module.exports = {
     getAllPosts,
     getOnePost,
     createPost,
     updatePost,
-    deletePost
+    deletePost,
+    addPost
 }

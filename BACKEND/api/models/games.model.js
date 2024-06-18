@@ -9,7 +9,7 @@ const Game = connection.define(
             allowNull: false,
         },
         launch_year: {
-            type: DataTypes.DATE,
+            type: DataTypes.STRING,
             allowNull: false,
         },
         duration: {
