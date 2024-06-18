@@ -42,7 +42,7 @@ METHOD | ENDPOINT         | TOKEN | ROLE | DESCRIPTION              | POST PARAM
 GET    | /game            | YES   | user | Get All games            |                                                 | { message: `string`, result: `array` }
 GET    | /game/:id        | YES   | user | Get One game             |                                                 | { message: `string`, result: `object` }
 POST   | /game            | YES   | admin | Create game              |  `name`,`launch_year`,`duration`,`dificulty`,`guide`,`game_image` | { message: `string`, result: `object` }
-PUT    | /game/:id/like   | YES   | admin | add Like to game         |                                                 | { message: `string`, result: `object` }
+PUT    | /game/:id/like   | YES   | user | add Like to game         |                                                 | { message: `string`, result: `object` }
 
 
 
