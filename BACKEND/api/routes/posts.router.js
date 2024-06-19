@@ -8,7 +8,7 @@ const {
 
 router.get("/", getAllPosts)
 router.get("/", getOnePost)
-router.post("/", createPost)
+router.post("/", checkAuth, createPost)
 router.put("/", updatePost)
 router.delete("/", deletePost)
 router.post("/:id", checkAuth, addPost)

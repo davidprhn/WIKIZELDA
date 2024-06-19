@@ -51,7 +51,7 @@ const getOnePost = async (req, res) => {
 
 const createPost = async (req, res) => {
     try {
-        const newPost = { ...req.body, userId: res.local.user.id }
+        const newPost = { ...req.body, userId: res.locals.user.id }
         const post = await Post.create(newPost)
 
         res.status(200).json({
@@ -59,6 +59,7 @@ const createPost = async (req, res) => {
             result: post,
         })
     } catch (error) {
+        console.log(error)
         res.status(500).json({
             message: 'Error creating post',
             result: error
