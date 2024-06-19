@@ -10,7 +10,7 @@ const Notifications = connection.define(
         },
         type: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
         },
     },
     {
