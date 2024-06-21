@@ -11,6 +11,7 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import SideBar from "../SideBar/SideBar";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -53,8 +54,6 @@ export default function Header() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
     </Menu>
   );
 
@@ -105,24 +104,25 @@ export default function Header() {
   return (
     <Box>
       <AppBar position="static">
-        <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
+        <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
           <SideBar />
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ display: { xs: "none", sm: "block" } }}
-          >
-            WIKIZELDA
-          </Typography>
-          <Box/>
+          <Link style={{ textDecoration: "none" }} to="/">
+            <Typography
+              variant="h6"
+              noWrap
+              component="div"
+              sx={{ display: { xs: "none", sm: "block" } }}
+            >
+              WIKIZELDA
+            </Typography>
+          </Link>
+          <Box />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <IconButton
               size="large"
               aria-label="show 4 new mails"
               color="inherit"
-            >
-            </IconButton>
+            ></IconButton>
             <IconButton
               size="large"
               aria-label="show 17 new notifications"
@@ -132,17 +132,18 @@ export default function Header() {
                 <NotificationsIcon />
               </Badge>
             </IconButton>
-            <IconButton
-              size="large"
-              edge="end"
-              aria-label="account of current user"
-              aria-controls={menuId}
-              aria-haspopup="true"
-              onClick={handleProfileMenuOpen}
-              color="inherit"
-            >
-              <AccountCircle />
-            </IconButton>
+            <Link to='/userinfo'>
+              <IconButton
+                size="large"
+                edge="end"
+                aria-label="account of current user"
+                aria-controls={menuId}
+                aria-haspopup="true"
+                color="inherit"
+              >
+                <AccountCircle />
+              </IconButton>
+            </Link>
           </Box>
           <Box sx={{ display: { xs: "flex", md: "none" } }}>
             <IconButton

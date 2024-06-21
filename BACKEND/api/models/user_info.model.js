@@ -5,8 +5,7 @@ const Userinfo = connection.define(
     'user_info',
     {
         info: {
-            type: DataTypes.TEXT,
-            allowNull: false,
+            type: DataTypes.TEXT
         },
         avatar: {
             type: DataTypes.STRING,

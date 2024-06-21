@@ -1,6 +1,7 @@
 import { getAllPosts } from "../../services/postsServices"
 import { useEffect, useState } from "react"
 import PostCard from "../../components/PostCard/PostCard"
+import './Posts.css'
 
 function Posts() {
     const [posts, setPosts] = useState([])
@@ -15,7 +16,7 @@ function Posts() {
 
     console.log(posts)
   return (
-    <div>
+    <div className="posts-container">
         {
             posts.map((post) => {
                 return <PostCard postBody={post.body} key={post.id}/>
