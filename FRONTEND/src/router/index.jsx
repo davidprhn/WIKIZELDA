@@ -24,20 +24,34 @@ const router = createBrowserRouter([
       },
       {
         path: "/signup",
+        loader: () => {
+          if (localStorage.getItem("token")) {
+            return redirect("/profile");
+          } else {
+            return null;
+          }
+        },
         element: <SignUp />,
       },
       {
         path: "/login",
+        loader: () => {
+          if (localStorage.getItem("token")) {
+            return redirect("/profile");
+          } else {
+            return null;
+          }
+        },
         element: <Login />,
       },
       {
         path: "/profile",
         loader: () => {
-          if(!localStorage.getItem('token')) {
-            alert('Inicia sesión!!!')
-            return redirect('/login')
+          if (!localStorage.getItem("token")) {
+            alert("Inicia sesión!!!");
+            return redirect("/login");
           } else {
-            return null
+            return null;
           }
         },
         element: <Profile />,

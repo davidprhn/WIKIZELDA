@@ -1,6 +1,7 @@
 import { Box, Button, TextField } from "@mui/material";
 import { useState } from "react";
 import { signUp } from "../../services/authService";
+import { Link } from "react-router-dom";
 
 function SignUp() {
   const [name, setName] = useState("");
@@ -72,8 +73,11 @@ function SignUp() {
             type="password"
           />
         </label>
-
-        <Button onClick={handleSubmit} variant="contained">Register</Button>
+        <Link to="/profile">
+          <Button onClick={handleSubmit} variant="contained">
+            Register
+          </Button>
+        </Link>
       </Box>
     </Box>
   );

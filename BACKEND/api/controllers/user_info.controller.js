@@ -1,4 +1,5 @@
 const UserInfo = require('../models/user_info.model')
+const User = require('../models/user.model')
 
 
 const getAllUserInfos = async (req, res) => {
@@ -28,7 +29,9 @@ const getAllUserInfos = async (req, res) => {
 
 const getOneUserInfo = async (req, res) => {
     try {
-        const userinfo = await UserInfo.findByPk(req.params)
+        const userinfo = await User.findByPk(res.locals.user.id, {
+            include: UserInfo
+        })
 
         if (!userinfo) {
             res.status(404).json({

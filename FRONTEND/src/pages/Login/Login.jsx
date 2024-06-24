@@ -1,10 +1,14 @@
 import { Box, Button, TextField } from "@mui/material";
 import { useState } from "react";
 import { login } from "../../services/authService";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const navigate = useNavigate()
 
   const handleEmail = (event) => {
     setEmail(event.target.value);
@@ -21,7 +25,7 @@ function Login() {
     };
 
     const result = await login(formData);
-    console.log(result);
+    navigate('/profile')
   };
 
   return (
@@ -59,10 +63,11 @@ function Login() {
             type="password"
           />
         </label>
-
-        <Button onClick={handleSubmit} variant="contained">
-          Login
-        </Button>
+        <Link to="/">
+          <Button onClick={handleSubmit} variant="contained">
+            Login
+          </Button>
+        </Link>
       </Box>
     </Box>
   );

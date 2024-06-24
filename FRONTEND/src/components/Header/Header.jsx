@@ -11,9 +11,15 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import SideBar from "../SideBar/SideBar";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Header() {
+  const navigate = useNavigate()
+  const handleLogout = () => {
+    localStorage.clear()
+    navigate('/login')
+  }
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -37,6 +43,11 @@ export default function Header() {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
+    const handleClick = () => {
+      handleLogout();
+      handleMenuClose();
+    }
+
   const menuId = "primary-search-account-menu";
   const renderMenu = (
     <Menu
@@ -54,6 +65,8 @@ export default function Header() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
+      <MenuItem onClick={handleMenuClose}>View profile</MenuItem>
+      <MenuItem onClick={handleClick}>LogOut</MenuItem>
     </Menu>
   );
 
@@ -132,13 +145,14 @@ export default function Header() {
                 <NotificationsIcon />
               </Badge>
             </IconButton>
-            <Link to='/userinfo'>
+            <Link to="/profile">
               <IconButton
                 size="large"
                 edge="end"
                 aria-label="account of current user"
                 aria-controls={menuId}
                 aria-haspopup="true"
+                onClick={handleProfileMenuOpen}
                 color="inherit"
               >
                 <AccountCircle />
