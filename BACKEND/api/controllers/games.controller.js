@@ -28,7 +28,7 @@ const getAllGames = async (req, res) => {
 
 const getOneGame = async (req, res) => {
     try {
-        const game = await Game.findByPk(req.params)
+        const game = await Game.findByPk(req.params.id)
 
         if (!game) {
             res.status(404).json({

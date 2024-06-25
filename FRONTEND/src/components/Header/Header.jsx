@@ -43,6 +43,11 @@ export default function Header() {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
+    const handleProfile = () => {
+      handleMenuClose();
+      navigate('/profile');
+    }
+
     const handleClick = () => {
       handleLogout();
       handleMenuClose();
@@ -65,7 +70,7 @@ export default function Header() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>View profile</MenuItem>
+      <MenuItem onClick={handleProfile}>View profile</MenuItem>
       <MenuItem onClick={handleClick}>LogOut</MenuItem>
     </Menu>
   );
@@ -145,7 +150,6 @@ export default function Header() {
                 <NotificationsIcon />
               </Badge>
             </IconButton>
-            <Link to="/profile">
               <IconButton
                 size="large"
                 edge="end"
@@ -157,7 +161,6 @@ export default function Header() {
               >
                 <AccountCircle />
               </IconButton>
-            </Link>
           </Box>
           <Box sx={{ display: { xs: "flex", md: "none" } }}>
             <IconButton

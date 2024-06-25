@@ -28,6 +28,29 @@ export default function SideBar() {
     setState({ ...state, [anchor]: open });
   };
 
+  const array = [
+    {
+      title: "The Legend of Zelda Ocarina of Time",
+      url: "ocarinaoftime",
+    },
+    {
+      title: "The Legend of Zelda The Wind Waker",
+      url: "thewindwaker",
+    },
+    {
+      title: "The Legend of Zelda A Link To The Past",
+      url: "alinktothepast",
+    },
+    {
+      title: "The Legend of Zelda Breath of the Wild",
+      url: "breathofthewild",
+    },
+    {
+      title: "The Legend of Zelda Tears of the Kingdom",
+      url: "tearsofthekingdom",
+    },
+  ];
+
   const list = (anchor) => (
     <Box
       sx={{ width: anchor === "top" || anchor === "bottom" ? "auto" : 250 }}
@@ -36,20 +59,14 @@ export default function SideBar() {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {[
-          "The Legend of Zelda Ocarina of Time",
-          "The Legend of Zelda The Wind Waker",
-          "The Legend of Zelda A Link to the Past",
-          "The Legend of Zelda Breath of the Wild",
-          "The Legend of Zelda Tears of the Kingdom",
-        ].map((text, index) => (
-          <Link to={`/${text}`} key={text} style={{ textDecoration: 'none' }}>
+        {array.map((obj, index) => (
+          <Link to={`/${obj.url}`} key={index} style={{ textDecoration: 'none' }}>
             <ListItem disablePadding>
               <ListItemButton>
                 <ListItemIcon>
                   {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
                 </ListItemIcon>
-                <ListItemText primary={text} />
+                <ListItemText primary={obj.title} />
               </ListItemButton>
             </ListItem>
           </Link>
