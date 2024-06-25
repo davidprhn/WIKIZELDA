@@ -13,7 +13,7 @@ const signUp = async (dataForm) => {
 
 const login = async (dataForm) => {
     try {
-        const { data } = await api.post('auth/login',dataForm)
+        const { data } = await api.post('auth/login', dataForm)
         localStorage.setItem('token', data.result)
         localStorage.setItem('role', data.role)
         return data

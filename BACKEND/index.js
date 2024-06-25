@@ -21,8 +21,8 @@ app.use(morgan('dev'))
 
 app.use('/api', router)
 
-app.listen(process.env.PORT, () => {
-    console.log(`Server started!! Listening on port ${process.env.PORT}`)
+app.listen(process.env.DB_PORT, () => {
+    console.log(`Server started!! Listening on port ${process.env.DB_PORT}`)
     startDB()
 })
 

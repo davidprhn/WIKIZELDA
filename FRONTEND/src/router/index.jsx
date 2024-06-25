@@ -34,17 +34,6 @@ const router = createBrowserRouter([
         element: <SignUp />,
       },
       {
-        path: "/login",
-        loader: () => {
-          if (localStorage.getItem("token")) {
-            return redirect("/profile");
-          } else {
-            return null;
-          }
-        },
-        element: <Login />,
-      },
-      {
         path: "/profile",
         loader: () => {
           if (!localStorage.getItem("token")) {
@@ -58,6 +47,18 @@ const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: "/login",
+    loader: () => {
+      if (localStorage.getItem("token")) {
+        return redirect("/profile");
+      } else {
+        return null;
+      }
+    },
+    element: <Login />,
+    errorElement: <NotFound />,
+  }
 ]);
 
 export default router
