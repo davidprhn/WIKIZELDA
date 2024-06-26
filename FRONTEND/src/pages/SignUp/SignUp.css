@@ -1,0 +1,89 @@
+/* SignUp.css */
+
+/* General styles */
+body {
+    background-color: #1b3b1b;
+    font-family: fantasy;
+    color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+/* SignUp container */
+.SignUp-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+/* SignUp title */
+.SignUp-title {
+    font-family: 'The Wild Breath of Zelda', sans-serif;
+    font-size: 2.5rem;
+    color: #ffcc00;
+    text-shadow: none;
+    margin-bottom: 10px;
+}
+
+/* SignUp form */
+.SignUp-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+    /* White background for the form */
+    padding: 20px;
+    border-radius: 10px;
+    /* Rounded corners */
+    width: 400px;
+    /* Adjust as needed */
+    margin-bottom: 40px;
+    /* Space between form and footer */
+}
+
+/* SignUp label */
+.SignUp-label {
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 1rem;
+    color: #1b3b1b;
+    /* Dark green color */
+    margin-bottom: 10px;
+    width: 100%;
+    /* Ensure labels take full width */
+    text-align: center;
+    /* Center align text */
+}
+
+/* SignUp text field */
+.SignUp-textField {
+    width: 100%;
+    /* Full width text field */
+    margin-bottom: 20px;
+}
+
+/* SignUp button */
+.SignUp-button {
+    background-color: #ffcc00 !important;
+    color: #1b3b1b !important;
+    font-family: 'Triforce', sans-serif;
+    font-size: 1rem;
+    margin-top: 20px;
+    padding: 10px 30px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.SignUp-button:hover {
+    background-color: #ffea00;
+    color: #1b3b1b;
+}
+
+/* Footer */
+.Footer {
+    width: 100%;
+    background-color: #1b3b1b;
+    color: #f5f5f5;
+    text-align: center;
+    padding: 20px 0;
+}

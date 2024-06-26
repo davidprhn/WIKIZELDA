@@ -1,5 +1,6 @@
 
-import { Box, Grid, Container, Typography, Button } from "@mui/material";
+import { Box, Grid, Container, Button } from "@mui/material";
+import "../Footer/Footer.css"
 
 function Footer() {
   const elements = [
@@ -22,14 +23,14 @@ function Footer() {
       return (
         <Grid key={idx} item xs={12} md={4}>
           <Box borderBottom={1}>
-            <Button sx={{ color: "white", fontWeight: "bold" }}>
+            <Button className="typography-header">
               {column.header}
             </Button>
           </Box>
           {column.links.map((link, idx) => {
             return (
               <Box key={idx}>
-                <Button sx={{ color: "white" }}>{link}</Button>
+                <Button className="typography-link">{link}</Button>
               </Box>
             );
           })}
@@ -41,15 +42,12 @@ function Footer() {
 
   return (
     <footer>
-      <Box bgcolor="primary.main" color="white" padding={2}>
+      <Box bgcolor="#3c6e3c" color="#ffffff" padding={2}>
         <Container>
           <Grid container columnSpacing={2}>
             {generateFooterElements()}
           </Grid>
         </Container>
-      </Box>
-      <Box textAlign={"center"} py={2} m={0} bgcolor="black" color={"white"}>
-        <Typography>© WIKIZELDA 2024 - All Rights Reserved</Typography>
       </Box>
     </footer>
   );

@@ -38,7 +38,7 @@ const router = createBrowserRouter([
         },
         element: <SignUp />,
       },
-      {
+     {
         path: "/profile",
         loader: () => {
           if (!localStorage.getItem("token")) {

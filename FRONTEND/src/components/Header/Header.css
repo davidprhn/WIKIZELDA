@@ -1,0 +1,73 @@
+/* Title styles */
+webName {
+    color: #ffcc00;
+    font-family: 'The Wild Breath of Zelda', sans-serif;
+    text-align: center;
+    font-size: 5rem;
+}
+
+/* AppBar styles */
+.MuiAppBar-root {
+    background-color: #3c6e3c !important;
+}
+
+/* Toolbar styles */
+.MuiToolbar-root {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* IconButton styles */
+.MuiIconButton-root {
+    color: #ffcc00 !important;
+}
+
+/* Badge styles */
+.MuiBadge-badge {
+    background-color: #ff0000 !important;
+    color: #ffffff !important;
+}
+
+/* Menu styles */
+.MuiMenu-paper {
+    background-color: #2e492e;
+    color: #ffffff;
+    border: 1px solid #ffcc00;
+}
+
+/* MenuItem styles */
+.MuiMenuItem-root {
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 1rem;
+    color: #ffffff;
+}
+
+.MuiMenuItem-root:hover {
+    background-color: #ffcc00;
+    color: #000000;
+}
+
+/* Link styles */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* SideBar button styles */
+.SideBar-button {
+    color: #ffcc00;
+    font-family: 'Triforce', sans-serif;
+}
+
+/* Custom Zelda font */
+@font-face {
+    font-family: 'Triforce';
+    src: url('path/to/triforce-font.woff2') format('woff2'),
+        url('path/to/triforce-font.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}

@@ -1,0 +1,49 @@
+/* SideBar.css */
+
+/* Root element for the sidebar */
+.MuiDrawer-paper {
+    background-color: #3c6e3c !important;
+    /* Zelda green background */
+    color: #ffffff;
+    /* White text */
+}
+
+/* Sidebar links */
+.sidebar-link {
+    text-decoration: none;
+    /* Remove underline */
+    color: #ffffff !important;
+    /* White text */
+    transition: all 0.3s ease;
+    /* Smooth transition for hover */
+    display: block;
+    /* Block-level element for full width */
+    padding: 10px 20px;
+    /* Padding for each link item */
+    font-family: 'Triforce', sans-serif;
+    /* Custom Zelda font (if available) */
+    font-size: 18px;
+    /* Font size */
+    text-shadow: none !important;
+    /* Remove text shadow */
+}
+
+.sidebar-link:hover {
+    background-color: #003300 !important;
+    /* Darken background on hover */
+    color: #ffcc00 !important;
+    /* Highlight text color on hover */
+}
+
+/* Sidebar icon */
+.MuiListItemIcon-root {
+    color: #ffcc00;
+    /* Icon color */
+}
+
+/* Example of custom Zelda font loading (if available) */
+@font-face {
+    font-family: 'Triforce';
+    src: url('path-to-your-font/triforce-font.woff') format('woff');
+    /* Add more formats as needed for cross-browser compatibility */
+}
