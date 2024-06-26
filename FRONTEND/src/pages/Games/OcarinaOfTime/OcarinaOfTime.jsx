@@ -9,6 +9,7 @@ function OcarinaOfTime() {
   useEffect(() => {
     const gameRequest = async () => {
       const result = await getOneGame(1);
+      console.log(result)
       setGames(result);
     };
     gameRequest();
@@ -17,7 +18,7 @@ function OcarinaOfTime() {
   console.log(game);
   return (
     <div className="posts-container">
-      <GamesCard gameBody={game} />;
+      <GamesCard gameBody={game} />
     </div>
   );
 }

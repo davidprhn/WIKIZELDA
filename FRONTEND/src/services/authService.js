@@ -3,11 +3,12 @@ import api from "./config";
 const signUp = async (dataForm) => {
     try {
         const { data } = await api.post('auth/signup', dataForm)
-        localStorage.setItem('token', data.result)
-        localStorage.setItem('role', data.role)
+        console.log(data)
+        localStorage.setItem('token', data.result.token)
+        localStorage.setItem('role', data.result.user.role)
         return data
     } catch (error) {
-        console.log(error)
+        console.error(error)
     }
 }
 

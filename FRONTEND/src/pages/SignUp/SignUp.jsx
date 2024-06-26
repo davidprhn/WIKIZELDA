@@ -1,13 +1,14 @@
 import { Box, Button, TextField } from "@mui/material";
 import { useState } from "react";
 import { signUp } from "../../services/authService";
-import { Link } from "react-router-dom";
 import "../SignUp/SignUp.css"; // Import the CSS file for styles
+import { useNavigate } from "react-router-dom";
 
 function SignUp() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate(); 
 
   const handleName = (event) => {
     setName(event.target.value);
@@ -27,6 +28,7 @@ function SignUp() {
     }
 
     const result = await signUp(formData)
+    navigate('/profile')
     console.log(result)
   }
 
@@ -63,11 +65,9 @@ function SignUp() {
             type="password"
           />
         </label>
-        <Link to="/profile">
           <Button onClick={handleSubmit} className="SignUp-button" variant="contained">
             Register
           </Button>
-        </Link>
       </Box>
     </Box>
   );
