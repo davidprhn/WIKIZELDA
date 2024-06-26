@@ -5,7 +5,7 @@ function Home() {
   return (
     <div className="home-container">
       <p>
-        Ready to jump into a new adventure ? <br />
+        Ready to jump into a new adventure? <br />
         <br />
         You just found the perfect page to comment your favorite Zelda games with gamers from all around the world ! <br />
       </p>
