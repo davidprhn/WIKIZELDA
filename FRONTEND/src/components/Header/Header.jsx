@@ -3,7 +3,6 @@ import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
 import Badge from "@mui/material/Badge";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
@@ -11,15 +10,17 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import SideBar from "../SideBar/SideBar";
-import { Link, Navigate } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import "../Header/Header.css"; // Import the Header.css file
 
 export default function Header() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+
   const handleLogout = () => {
-    localStorage.clear()
-    navigate('/login')
-  }
+    localStorage.clear();
+    navigate('/login');
+  };
+
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -43,15 +44,15 @@ export default function Header() {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
-    const handleProfile = () => {
-      handleMenuClose();
-      navigate('/profile');
-    }
+  const handleProfile = () => {
+    handleMenuClose();
+    navigate('/profile');
+  };
 
-    const handleClick = () => {
-      handleLogout();
-      handleMenuClose();
-    }
+  const handleClick = () => {
+    handleLogout();
+    handleMenuClose();
+  };
 
   const menuId = "primary-search-account-menu";
   const renderMenu = (
@@ -108,7 +109,7 @@ export default function Header() {
         <IconButton
           size="large"
           aria-label="account of current user"
-          aria-controls="primary-search-account-menu"
+          aria-controls={menuId}
           aria-haspopup="true"
           color="inherit"
         >
@@ -121,19 +122,18 @@ export default function Header() {
 
   return (
     <Box>
-      <AppBar position="static">
+      <AppBar position="static" className="MuiAppBar-root">
         <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
           <SideBar />
-          <Link style={{ textDecoration: "none" }} to="/">
-            <Typography
-              variant="h6"
-              noWrap
-              component="div"
-              sx={{ display: { xs: "none", sm: "block" } }}
-            >
-              WIKIZELDA
-            </Typography>
-          </Link>
+          <Box sx={{ display: "flex", alignItems: "center" }}>
+            <Link style={{ textDecoration: "none" }} to="/">
+              <Box display="flex" alignItems="center" justifyContent="center">
+                <webName>
+                  WIKIZELDA
+                </webName>
+              </Box>
+            </Link>
+          </Box>
           <Box />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <IconButton
@@ -146,21 +146,21 @@ export default function Header() {
               aria-label="show 17 new notifications"
               color="inherit"
             >
-              <Badge badgeContent={17} color="error">
+              <Badge badgeContent={17} color="error" className="MuiBadge-badge">
                 <NotificationsIcon />
               </Badge>
             </IconButton>
-              <IconButton
-                size="large"
-                edge="end"
-                aria-label="account of current user"
-                aria-controls={menuId}
-                aria-haspopup="true"
-                onClick={handleProfileMenuOpen}
-                color="inherit"
-              >
-                <AccountCircle />
-              </IconButton>
+            <IconButton
+              size="large"
+              edge="end"
+              aria-label="account of current user"
+              aria-controls={menuId}
+              aria-haspopup="true"
+              onClick={handleProfileMenuOpen}
+              color="inherit"
+            >
+              <AccountCircle />
+            </IconButton>
           </Box>
           <Box sx={{ display: { xs: "flex", md: "none" } }}>
             <IconButton

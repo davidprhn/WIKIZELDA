@@ -2,6 +2,7 @@ import { Box, Button, TextField } from "@mui/material";
 import { useState } from "react";
 import { signUp } from "../../services/authService";
 import { Link } from "react-router-dom";
+import "../SignUp/SignUp.css"; // Import the CSS file for styles
 
 function SignUp() {
   const [name, setName] = useState("");
@@ -19,7 +20,7 @@ function SignUp() {
   const handlePassword = (event) => {
     setPassword(event.target.value);
   };
-  
+
   const handleSubmit = async () => {
     const formData = {
       name, email, password
@@ -30,43 +31,32 @@ function SignUp() {
   }
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        width: "100%",
-      }}
-    >
-      <h1 style={{ width: "100px" }}>SignUp</h1>
-      <Box
-        sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
-      >
-        <label>
-          Name:
+    <Box className="SignUp-container">
+      <h1 className="SignUp-title">SignUp</h1>
+      <Box className="SignUp-form">
+        <label className="SignUp-label">
           <TextField
             onChange={(e) => handleName(e)}
+            className="SignUp-textField"
             id="outlined-basic"
             label="Name"
             variant="outlined"
           />
         </label>
-        <label>
-          {" "}
-          Email:
+        <label className="SignUp-label">
           <TextField
             onChange={(e) => handleEmail(e)}
+            className="SignUp-textField"
             id="outlined-basic"
             label="Email"
             variant="outlined"
             type="email"
           />
         </label>
-        <label>
-          {" "}
-          Password:
+        <label className="SignUp-label">
           <TextField
             onChange={(e) => handlePassword(e)}
+            className="SignUp-textField"
             id="outlined-basic"
             label="Password"
             variant="outlined"
@@ -74,7 +64,7 @@ function SignUp() {
           />
         </label>
         <Link to="/profile">
-          <Button onClick={handleSubmit} variant="contained">
+          <Button onClick={handleSubmit} className="SignUp-button" variant="contained">
             Register
           </Button>
         </Link>

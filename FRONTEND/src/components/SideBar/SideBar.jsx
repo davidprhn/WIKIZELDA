@@ -1,16 +1,16 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
-import Button from "@mui/material/Button";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
+import InboxIcon from "@mui/icons-material/Details";
+import MailIcon from "@mui/icons-material/Details";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Link } from "react-router-dom";
+import "../SideBar/SideBar.css"; // Import your updated CSS file
 
 export default function SideBar() {
   const [state, setState] = React.useState({
@@ -60,7 +60,11 @@ export default function SideBar() {
     >
       <List>
         {array.map((obj, index) => (
-          <Link to={`/${obj.url}`} key={index} style={{ textDecoration: 'none' }}>
+          <Link
+            to={`/${obj.url}`}
+            key={index}
+            className="sidebar-link" // Apply the sidebar-link class here
+          >
             <ListItem disablePadding>
               <ListItemButton>
                 <ListItemIcon>
