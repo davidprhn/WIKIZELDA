@@ -3,8 +3,6 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
@@ -34,25 +32,32 @@ const defaultTheme = createTheme();
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  const handleEmail = (event) => {
-    setEmail(event.target.value);
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
   };
 
-  const handlePassword = (event) => {
-    setPassword(event.target.value);
+  const handlePassword = (e) => {
+    setPassword(e.target.value);
   };
 
-  const handleSubmit = async () => {
-    const formData = {
-      email,
-      password,
-    };
-
-    const result = await login(formData);
-    navigate('/profile')
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const formData = { email, password };
+    console.log(formData)
+    try {
+      const result = await login(formData);
+      if (result.result) {
+        navigate('/profile');
+      } else {
+        setError(result.message || 'Login failed. Please try again.');
+      }
+    } catch (error) {
+      setError('An error occurred. Please try again.');
+    }
   };
 
   return (
@@ -91,7 +96,7 @@ export default function Login() {
             </Typography>
             <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
               <TextField
-                onChange={(e) => handleEmail(e)}
+                onChange={handleEmail}
                 margin="normal"
                 required
                 fullWidth
@@ -102,7 +107,7 @@ export default function Login() {
                 autoFocus
               />
               <TextField
-                onChange={(e) => handlePassword(e)}
+                onChange={handlePassword}
                 margin="normal"
                 required
                 fullWidth
@@ -112,6 +117,11 @@ export default function Login() {
                 id="password"
                 autoComplete="current-password"
               />
+              {error && (
+                <Typography color="error" variant="body2">
+                  {error}
+                </Typography>
+              )}
               <Button
                 type="submit"
                 fullWidth
@@ -120,14 +130,15 @@ export default function Login() {
               >
                 Sign In
               </Button>
-              <Typography sx={{textAlign: "center"}}>
+              <Typography sx={{ textAlign: "center" }}>
                 OR
               </Typography>
               <Button
-                type="submit"
+                type="button"
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
+                onClick={() => navigate('/register')}
               >
                 REGISTER
               </Button>
