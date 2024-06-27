@@ -1,3 +1,12 @@
 body {
   margin: 0;
 }
+
+@font-face {
+  font-family: 'The Wild Breath of Zelda';
+  src: url('/path/to/the-wild-breath-of-zelda.ttf') format('truetype');
+}
+
+*{
+  font-family: 'The Wild Breath of Zelda'
+}
