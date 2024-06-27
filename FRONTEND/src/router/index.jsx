@@ -16,13 +16,16 @@ import TearsOfTheKingdom from "../pages/Games/TearsOfTheKingdom/TearsOfTheKingdo
 const router = createBrowserRouter([
   {
     path: "",
+    loader: () => {
+      if (!localStorage.getItem("token")) {
+        return redirect("/login");
+      } else {
+        return null;
+      }
+    },
     element: <Root />,
     errorElement: <NotFound />,
     children: [
-      {
-        path: "",
-        element: <Home />,
-      },
       {
         path: "/posts",
         element: <Posts />,
