@@ -1,4 +1,5 @@
 const Game = require('../models/games.model')
+const Post = require('../models/posts.model')
 
 
 const getAllGames = async (req, res) => {
@@ -28,7 +29,7 @@ const getAllGames = async (req, res) => {
 
 const getOneGame = async (req, res) => {
     try {
-        const game = await Game.findByPk(req.params.id)
+        const game = await Game.findByPk(req.params.id, {include:{model:Post}})
 
         if (!game) {
             res.status(404).json({
@@ -123,10 +124,25 @@ const deleteOneGame = async (req, res) => {
     }
 }
 
+const getPostsByGameId = async (req, res) => {
+    const { gameId } = req.params;
+    try {
+        const posts = await Post.findAll({ where: { gameId } });
+        if (posts.length === 0) {
+            return res.status(404).json({ message: 'No posts found for this game' });
+        }
+        res.json({ results: posts });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+};
+
 module.exports = {
     createGame,
     getOneGame,
     getAllGames,
     updateOneGame,
-    deleteOneGame
+    deleteOneGame,
+    getPostsByGameId
 }

@@ -16,7 +16,7 @@ const Post = connection.define(
             type: DataTypes.DATE,
             defaultValue: DataTypes.NOW,
             allowNull: false,
-        }
+        },
     },
     {
         timestamps: false

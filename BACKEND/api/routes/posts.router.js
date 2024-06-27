@@ -7,7 +7,7 @@ const {
 } = require('../middlewares')
 
 router.get("/", getAllPosts)
-router.get("/", getOnePost)
+router.get("/:id", getOnePost)
 router.post("/", checkAuth, createPost)
 router.put("/", updatePost)
 router.delete("/", deletePost)
