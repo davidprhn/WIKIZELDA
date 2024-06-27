@@ -1,24 +1,40 @@
-import { getOneGame } from "../../../services/gamesServices";
+import { getOneGame, getPostsByGameId } from "../../../services/gamesServices";
 import { useEffect, useState } from "react";
 import GamesCard from "../../../components/GamesCard/GamesCard";
+import PostCard from "../../../components/PostCard/PostCard";
 import "./BreathOfTheWild.css";
 
 function BreathOfTheWild() {
-  const [game, setGames] = useState({});
+  const [game, setGame] = useState({});
 
   useEffect(() => {
-    const gameRequest = async () => {
-      const result = await getOneGame(4);
-      setGames(result);
+    const fetchData = async () => {
+      try {
+        const gameResult = await getOneGame(4);
+        console.log("Game:", gameResult);
+
+        setGame(gameResult);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
     };
-    gameRequest();
+
+    fetchData();
   }, []);
 
   console.log(game);
   return (
-    <div className="posts-container">
-      <GamesCard gameBody={game} />
-    </div>
+    <>
+      <div className="posts-container">
+        <GamesCard gameBody={game} />
+      </div>
+      <div className="posts-container2">
+        {game.posts &&
+          game.posts.map((post) => (
+            <PostCard key={post.id} postBody={post.body} />
+          ))}
+      </div>
+    </>
   );
 }
 
