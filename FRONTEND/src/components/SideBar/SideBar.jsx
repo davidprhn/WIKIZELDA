@@ -52,15 +52,15 @@ export default function SideBar() {
   ];
 
   const list = (anchor) => (
-    <Box
-      sx={{ width: anchor === "top" || anchor === "bottom" ? "auto" : 250 }}
+    <Box 
+      sx={{ width: anchor === "top" || anchor === "bottom" ? "auto" : 250, fontFamily: 'The Wild Breath of Zelda'}}
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
-      <List>
+      <List sx={{fontFamily: 'The Wild Breath of Zelda'}}>
         {array.map((obj, index) => (
-          <Link
+          <Link sx={{fontFamily: 'The Wild Breath of Zelda'}}
             to={`/${obj.url}`}
             key={index}
             className="sidebar-link" // Apply the sidebar-link class here

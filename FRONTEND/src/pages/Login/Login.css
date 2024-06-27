@@ -1,20 +1,9 @@
 /* Login.css */
-
-body {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background-color: #1b3b1b !important;
-    color: black !important;
-}
-
 .login-form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #ffffff;
+    background-color:#1b3b1b;
     /* White background for the form */
     padding: 20px;
     border-radius: 10px;
@@ -44,8 +33,9 @@ h1 {
     color:#ffcc00; 
 }
 
-orText {
+.orText {
     font-family: 'The Wild Breath of Zelda', sans-serif;
     color: #1b3b1b;
     padding: 12px;
 }
+  

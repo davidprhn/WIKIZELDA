@@ -11,7 +11,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { login } from "../../services/authService";
-import '../Login/Login.css'
+import "./Login.css"
 
 function Copyright(props) {
   return (
@@ -61,18 +61,38 @@ export default function Login() {
 
   return (
     <ThemeProvider theme={defaultTheme}>
-      <Grid container component="main">
+      <Grid container component="main" sx={{ height: '100vh' }}>
         <CssBaseline />
-        
-        <Grid>
-          <Box>
-            <img src='src/pages/Home/multimedia/welcome.png' />
-            <br/>
-            <textSignIn>
-              <h1>Sign in to the Zelda world</h1>
-            </textSignIn>
-            <Box className="login-form" component="form" noValidate onSubmit={handleSubmit} >
-              <TextField
+        <Grid
+          item
+          xs={false}
+          sm={4}
+          md={7}
+          sx={{
+            backgroundImage: 'url(https://wallpapers.com/images/hd/the-legend-of-zelda-iphone-ry5qgh7adj5zqfge.jpg)',
+            backgroundRepeat: 'no-repeat',
+            backgroundColor: (t) =>
+              t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        />
+        <Grid sx={{backgroundColor: "#1b3b1b"}} item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+          <Box 
+            sx={{
+              my: 8,
+              mx: 4,
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+            }}
+          >
+                <img src='src/pages/Home/multimedia/welcome.png'/>
+            <Typography sx={{fontFamily: 'The Wild Breath of Zelda'}} component="h1" variant="h5">
+              Sign in to the Zelda world
+            </Typography>
+            <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
+              <TextField 
                 onChange={handleEmail}
                 margin="normal"
                 required
@@ -99,37 +119,29 @@ export default function Login() {
                   {error}
                 </Typography>
               )}
-
-            <br/>
               <Button
                 type="submit"
                 fullWidth
                 variant="contained"
-                
+                sx={{ mt: 3, mb: 2 }}
               >
                 Sign In
               </Button>
-              
-  
-              <orText>
+              <Typography className='orText' sx={{ textAlign: "center" }}>
                 OR
-              </orText>
-
+              </Typography>
               <Button
                 type="button"
                 fullWidth
                 variant="contained"
+                sx={{ mt: 3, mb: 2 }}
                 onClick={() => navigate('/signup')}
               >
                 REGISTER
               </Button>
-              <br />
-              <br />
-
-              
+              <Copyright sx={{ mt: 5 }} />
             </Box>
           </Box>
-          <Copyright sx={{color:"white"}}/>
         </Grid>
       </Grid>
     </ThemeProvider>

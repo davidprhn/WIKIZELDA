@@ -114,21 +114,14 @@ export default function Header() {
         <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
           <SideBar />
           <Box sx={{ display: "flex", alignItems: "center" }}>
-            <Link style={{ textDecoration: "none" }} to="/">
               <Box display="flex" alignItems="center" justifyContent="center">
                 <webName>
                   WIKIZELDA
                 </webName>
               </Box>
-            </Link>
           </Box>
           <Box />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
-            <IconButton
-              size="large"
-              aria-label="show 4 new mails"
-              color="inherit"
-            ></IconButton>
             <IconButton
               size="large"
               edge="end"
