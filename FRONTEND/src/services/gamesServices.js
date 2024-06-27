@@ -10,6 +10,16 @@ const getOneGame = async (id) => {
     }
 }
 
+const getPostsByGameId = async (gameId) => {
+    try {
+        const { data } = await api.get(`game/${gameId}/posts`);
+        return data.results;
+    } catch (error) {
+        console.log(error);
+    }
+};
+
 export {
-    getOneGame
-}
+    getOneGame,
+    getPostsByGameId
+};
