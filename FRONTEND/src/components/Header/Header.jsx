@@ -3,11 +3,9 @@ import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
-// import Badge from "@mui/material/Badge";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 import AccountCircle from "@mui/icons-material/AccountCircle";
-// import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import SideBar from "../SideBar/SideBar";
 import { Link, useNavigate } from "react-router-dom";
@@ -115,7 +113,7 @@ export default function Header() {
           <SideBar />
           <Box sx={{ display: "flex", alignItems: "center" }}>
               <Box display="flex" alignItems="center" justifyContent="center">
-                <webName>
+                <webName className='webName'>
                   WIKIZELDA
                 </webName>
               </Box>

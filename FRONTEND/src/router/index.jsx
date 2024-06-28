@@ -1,7 +1,6 @@
 import { createBrowserRouter, redirect } from "react-router-dom";
 import Root from "../layouts/mainLayout";
 import NotFound from "../pages/NotFound/NotFound";
-import Posts from "../pages/Posts/Posts";
 import SignUp from "../pages/SignUp/SignUp";
 import Login from "../pages/Login/Login";
 import Profile from "../pages/Profile/Profile";
@@ -25,10 +24,6 @@ const router = createBrowserRouter([
     element: <Root />,
     errorElement: <NotFound />,
     children: [
-      {
-        path: "/posts",
-        element: <Posts />,
-      },
       {
         path: "/signup",
         loader: () => {
